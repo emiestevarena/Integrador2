@@ -5,6 +5,7 @@ import java.util.GregorianCalendar;
 public class Cuota {
     private int numeroFactura;
     private int numeroPoliza;
+    private int numeroCuota;
     private double monto;
     private boolean pagada;
     private GregorianCalendar vencimiento;
@@ -18,6 +19,14 @@ public class Cuota {
         formaDePago = null;
     }
     
+    public void setNumeroCuota(int a){
+        this.numeroCuota=a;
+    }
+
+    public int getNumeroCuota(){
+        return numeroCuota;
+    }
+
     public void setVencimiento(GregorianCalendar g){
         this.vencimiento=g;
     }
@@ -38,7 +47,7 @@ public class Cuota {
         this.numeroPoliza=a;
     }
 
-    public int getNumeroPoliza(int a){
+    public int getNumeroPoliza(){
         return numeroPoliza;
     }
 
@@ -58,8 +67,8 @@ public class Cuota {
         return monto;
     }
 
-    public void setFormaDePago(int a){
-        this.formaDePago=FormaDePago.values()[a];
+    public void setFormaDePago(Enum<FormaDePago> a){
+        this.formaDePago=a;
     }
 
     public Enum<FormaDePago> getFormaDePago(){
