@@ -101,26 +101,48 @@ class PolizaServices{
     +crearPoliza()
     +modificarPoliza()
     +eliminarPoliza()
+    +consultar()
+}
+
+class ClienteServices{
+    +crearCliente()
+    +modificarCliente()
+    +eliminarCliente()
+    +consultar()
+}
+
+class VehiculoServices{
+    +crearVehiculo()
+    +modificarVehiculo()
+    +eliminarVehiculo()
+    +consultar()
 }
 
 class Facturacion{
     +crearCuota()
     +modificarCuota()
     +eliminarCuota()
+    +consultar()
 }
 
 class Main{
+    +ClienteServices
     +Facturacion
     +PolizaServices
+    +VehiculoServices
 }
 
 Cliente --> Clientes :almacenados en
+ClienteServices --> Cliente :crea
+ClienteServices --> Clientes :gestiona
 Cuota --> Cuotas :almacenados en
 Facturacion --> Cuota :crea
 Facturacion --> Cuotas :gestiona
 Facturacion --> Polizas :consulta
 Main --> Facturacion :usa
 Main -->PolizaServices:usa
+Main -->ClienteServices :usa
+Main -->VehiculoServices :usa
 Poliza --> Cliente :crea
 Poliza --> Vehiculo :crea
 Poliza --> FormaDePago :usa
@@ -128,7 +150,10 @@ Poliza --> TipoCobertura :usa
 Poliza --> Polizas :almacenados en
 PolizaServices --> Poliza :crea
 PolizaServices --> Polizas :gestiona
+PolizaServices --> ClienteServices :usa
+PolizaServices --> VehiculoServices :usa
 Vehiculo --> TipoVehiculo :usa
 Vehiculo --> Vehiculos :almacenados en
-
+VehiculoServices --> Vehiculo :crea
+VehiculoServices --> Vehiculos :gestiona
 @enduml
