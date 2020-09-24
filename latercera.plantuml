@@ -125,13 +125,6 @@ class Facturacion{
     +consultar()
 }
 
-class Main{
-    +ClienteServices
-    +Facturacion
-    +PolizaServices
-    +VehiculoServices
-}
-
 Cliente --> Clientes :almacenados en
 ClienteServices --> Cliente :crea
 ClienteServices --> Clientes :gestiona
@@ -139,12 +132,8 @@ Cuota --> Cuotas :almacenados en
 Facturacion --> Cuota :crea
 Facturacion --> Cuotas :gestiona
 Facturacion --> Polizas :consulta
-Main --> Facturacion :usa
-Main -->PolizaServices:usa
-Main -->ClienteServices :usa
-Main -->VehiculoServices :usa
-Poliza --> Cliente :crea
-Poliza --> Vehiculo :crea
+Poliza --> Cliente :tiene
+Poliza --> Vehiculo :tiene
 Poliza --> FormaDePago :usa
 Poliza --> TipoCobertura :usa
 Poliza --> Polizas :almacenados en
