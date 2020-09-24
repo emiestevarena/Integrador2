@@ -27,6 +27,52 @@ public class PolizaServices{
         else System.out.println("Póliza inexistente");
     }
 
+    public void eliminarPoliza(Polizas pp){
+        System.out.println("Ingrese número de póliza");
+        int a=inputPoliza();
+        if(this.polizaOK(pp,a)){ 
+            pp.getPolizas().remove(a);
+            System.out.println("Póliza eliminada");
+        }else{ System.out.println("Póliza inexistente");}
+    }
+
+    public void consultarPoliza(Polizas pp){
+        System.out.println("Ingrese número de póliza");
+        int a=inputPoliza();
+        if(this.polizaOK(pp,a)) this.print(pp,a);
+        else System.out.println("Póliza inexistente");
+    }
+
+    private void print(Polizas pp,int a){
+        Poliza p = pp.getPolizas().get(a);
+        System.out.println("Cliente Asegurado:");
+        System.out.println("Nombre: "+p.getCliente().getNombre());
+        System.out.println("Apellido: "+p.getCliente().getApellido());
+        System.out.println("Documento: "+p.getCliente().getDocumento());
+        System.out.println("Mail: "+p.getCliente().getMail());
+        System.out.println("Teléfono: "+p.getCliente().getTelefono());
+        System.out.println("Vehículo asegurado:");
+        System.out.println("Patente: "+p.getVehiculo().getPatente());
+        System.out.println("Marca: "+p.getVehiculo().getMarca());
+        System.out.println("Modelo: "+p.getVehiculo().getModelo());
+        System.out.println("Número de motor: "+p.getVehiculo().getNumeroMotor());
+        System.out.println("Chasis: "+p.getVehiculo().getChasis());
+        System.out.println("Color: "+p.getVehiculo().getColor());
+        System.out.println("Tipo de vehículo: "+p.getVehiculo().getTipo());
+        System.out.println("Póliza:");
+        System.out.println("Número de póliza: "+p.getNumeroPoliza());
+        System.out.println("Inicio de póliza: "+p.getInicioPoliza().get(Calendar.MONTH)+"/"+p.getInicioPoliza().get(Calendar.YEAR));
+        System.out.println("Fin de póliza: "+p.getFinPoliza().get(Calendar.MONTH)+"/"+p.getFinPoliza().get(Calendar.YEAR));
+        System.out.println("Cantidad de cuotas: "+p.getCantidadCuotas());
+        System.out.println("Forma de pago: "+p.getFormaDePago());
+        System.out.println("Monto Total Asegurado: $"+p.getMontoTotalAsegurado());
+        if(p.getCoberturaGranizo())System.out.println("Cobertura contra granizo: sí");
+        else System.out.println("Cobertura contra granizo: no");
+        System.out.println("Tipo de cobertura: "+p.getTipoCobertura());
+        p=null;
+        
+    }
+
     private int inputPoliza(){
         int a=0;
         try{
