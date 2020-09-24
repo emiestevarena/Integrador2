@@ -27,7 +27,73 @@ public class VehiculoServices {
         else System.out.println("Patente inexistente");
     }
 
-    private void modificacion(Vehiculos vv,String patente){}
+    public void eliminarVehiculo(Vehiculos vv){
+        System.out.println("ingrese patente");
+        String patente = leer.next();
+        if(this.patenteOK(vv,patente)){ vv.getVehiculos().remove(patente);System.out.println("Remoción exitosa"); }
+        else System.out.println("Patente inexistente");
+    }
+
+    public void consultarVehiculo(Vehiculos vv){
+        System.out.println("ingrese patente");
+        String patente = leer.next();
+        if(this.patenteOK(vv,patente)) this.print(vv, patente);
+        else System.out.println("Patente inexistente");
+    }
+
+    private void print(Vehiculos vv, String patente){
+        Vehiculo v= vv.getVehiculos().get(patente);
+        System.out.println("Patente: "+v.getPatente());
+        System.out.println("Marca: "+v.getMarca());
+        System.out.println("Modelo: "+v.getModelo());
+        System.out.println("Año: "+v.getAño());
+        System.out.println("Numero de Motor: "+v.getNumeroMotor());
+        System.out.println("Chasis: "+v.getChasis());
+        System.out.println("Color: "+v.getColor());
+        System.out.println("Tipo de vehículo: "+v.getTipo());
+        v=null;
+    }
+
+    private void modificacion(Vehiculos vv,String patente){
+        Vehiculo v = vv.getVehiculos().get(patente);
+        int a=ingresarOpcionModificacion();
+        while (a==0){a=ingresarOpcionModificacion();}
+        switch(a){
+            case 1: this.marca(v); break;
+            case 2: this.modelo(v); break;
+            case 3: this.año(v); break;
+            case 4: this.numeroMotor(v);break;
+            case 5: this.chasis(v);break;
+            case 6: this.color(v);break;
+            case 7: this.tipo(v);break;
+        }
+        vv.getVehiculos().put(patente,v);
+        v=null;
+    }
+
+    private int ingresarOpcionModificacion(){
+        int a=0;
+        this.listaOpcionesModificacion();
+        try{ a = this.modificacionOK(leer.nextInt());}
+        catch(MyException me){}
+        catch(Exception e){System.out.println("Ha ocurrido unn error");}
+        return a;
+    }
+
+    private int modificacionOK(int a) throws MyException{
+        if(a<1 || a>7) throw new MyException("Número fuera de rango");
+        else return a;
+    }
+
+    private void listaOpcionesModificacion(){
+        System.out.println("1. Modificar marca");
+        System.out.println("2. Modificar modelo");
+        System.out.println("3. Modificar año");
+        System.out.println("4. Modificar numero de motor");
+        System.out.println("5. Modificar chasis");
+        System.out.println("6. Modificar color");
+        System.out.println("7. Modificar tipo de vehiculo");
+    }
     
     private void patente(Vehiculos vv, Vehiculo v){
         System.out.println("ingrese patente");
