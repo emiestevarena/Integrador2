@@ -33,7 +33,17 @@ public class ClienteServices {
         int dni= inputDNI();
         while(dni==0){dni=inputDNI();}
         boolean OK = checkDNI(cc,dni);
-        if(OK){}
+        if(OK){this.print(dni,cc);}
+    }
+
+    private void print(int dni, Clientes cc){
+        Cliente c= cc.getClientes().get(dni);
+        System.out.println("Apellido: "+c.getApellido());
+        System.out.println("Nombre: "+c.getNombre());
+        System.out.println("Documento: "+c.getDocumento());
+        System.out.println("Mail: "+c.getMail());
+        System.out.println("Telefono: "+c.getTelefono());
+        c=null;
     }
 
     private boolean checkDNI(Clientes cc,int dni){
