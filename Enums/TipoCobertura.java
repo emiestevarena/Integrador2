@@ -1,5 +1,5 @@
 package Enums;
 
 public enum TipoCobertura {
-    TOTAL,CONTRATERCEROS,PERSONAL; 
+    TOTAL,CONTRA_TERCEROS,PERSONAL; 
 }

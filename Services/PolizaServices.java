@@ -15,7 +15,81 @@ public class PolizaServices{
         this.cantidadCuotas(p);
         this.formaDePago(p);
         this.montoTotalAsegurado(p);
+        this.incluyeGranizo(p);
+        this.tipoCobertura(p);
         pp.getPolizas().put(p.getNumeroPoliza(),p);
+    }
+
+    public void modificarPoliza(Polizas pp,Clientes cc, Vehiculos vv){
+        System.out.println("Ingrese número de póliza");
+        int a=inputPoliza();
+        if(this.polizaOK(pp,a))this.modificacion(pp, a, cc, vv);
+        else System.out.println("Póliza inexistente");
+    }
+
+    private int inputPoliza(){
+        int a=0;
+        try{
+            a=leer.nextInt();
+        }catch(Exception e){
+            System.out.println("Hubo un error");
+        }
+        return a;
+    }
+
+    private boolean polizaOK(Polizas pp, int a){
+        return pp.getPolizas().containsKey(a);
+    }
+
+    private void modificacion(Polizas pp,int a, Clientes cc, Vehiculos vv){
+        Poliza p= pp.getPolizas().get(a);
+        this.listaModificacion();
+        int b=inputOpcionModificacion();
+        while(b==0){b=inputOpcionModificacion();}
+        this.switchModificacion(b, p,cc,vv);
+        pp.getPolizas().put(a,p);
+        p=null;
+    }
+
+    private void switchModificacion(int b,Poliza p,Clientes cc,Vehiculos vv){
+        switch(b){
+            case 1:this.clientes(p,cc);break;
+            case 2:this.vehiculo(p,vv);break;
+            case 3:this.inicioPoliza(p);break;
+            case 4:this.finPoliza(p);break;
+            case 5:this.cantidadCuotas(p);break;
+            case 6:this.formaDePago(p);break;
+            case 7:this.montoTotalAsegurado(p);break;
+            case 8:this.incluyeGranizo(p);break;
+            case 9:this.tipoCobertura(p);break;
+        }
+    }
+
+    private int inputOpcionModificacion(){
+        int a=0;
+        try{
+            a=modificacionOK(leer.nextInt());
+        }catch(Exception e){
+            System.out.println("Hubo un error");
+        }
+        return a;
+    }
+
+    private int modificacionOK(int a)throws MyException{
+        if(a<1 || a>9) throw new MyException("Número fuera de rango");
+        else return a;
+    }
+
+    private void listaModificacion(){
+        System.out.println("1. Modificar cliente");
+        System.out.println("2. Modificar vehículo");
+        System.out.println("3. Modificar fecha de inicio");
+        System.out.println("4. Modificar fecha de fin");
+        System.out.println("5. Modificar cantidad de cuotas");
+        System.out.println("6. Modificar forma de pago");
+        System.out.println("7. Modificar monto total asegurado");
+        System.out.println("8. Modificar cobertura contra granizo");
+        System.out.println("9. Modificar tipo de cobertura");
     }
 
     private void poliza(Polizas pp, Poliza p){
@@ -205,5 +279,47 @@ public class PolizaServices{
             System.out.println("Ha ocurrido un error");
         }
         return a;
+    }
+
+    private void incluyeGranizo(Poliza p){
+        int a=0;
+        System.out.println("Ingrese 1 si incluye cobertura contra granizo");
+        try{
+            a=leer.nextInt();
+        }catch(Exception e){
+            System.out.println("Hubo un error");
+        }finally{
+            if(a==1) p.setCoberturaGranizo(true);
+            else p.setCoberturaGranizo(false);
+        }
+    }
+
+    private void tipoCobertura(Poliza p){
+        this.listaTipoCobertura();
+        int a=inputTipoCobertura();
+        while(a==0){a=inputTipoCobertura();}
+        p.setTipoCobertura(a);
+    }
+
+    private void listaTipoCobertura(){
+        System.out.println("1. Total");
+        System.out.println("2. Contra Terceros");
+        System.out.println("3. Personal");
+    }
+
+    private int inputTipoCobertura(){
+        int a=0;
+        System.out.println("Ingrese código");
+        try{
+            a=tipoOK(leer.nextInt());
+        }catch(Exception e){
+            System.out.println("Ha ocurrido un error");
+        }
+        return a;
+    }
+
+    private int tipoOK(int a) throws MyException{
+        if(a<1 || a>3) throw new MyException("Número fuera de rango");
+        else return a;
     }
 }
