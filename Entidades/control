@@ -1,0 +1,32 @@
+public class control {
+
+    private String producto;
+
+    public control(String producto) {
+        this.producto = producto;
+    }
+
+    public control() {
+    }
+
+    public String getProducto() {
+        return producto;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
+
+    public void mantenimientoYControl(){
+
+    }
+
+    public void actualizacion(){
+
+    }
+
+    public void depuracion(){
+
+    }
+
+}
