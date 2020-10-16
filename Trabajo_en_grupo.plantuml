@@ -1,0 +1,12 @@
+@startuml latercera
+skinparam  Style strictuml
+skinparam  SequenceMessageAlignment center
+
+class Ventas{
+    - producto: string
+    - precio: double
+    - cantidad: int
+    +ventas()
+    +registroVentas()
+}
+@enduml
