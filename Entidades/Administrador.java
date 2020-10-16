@@ -1,8 +1,8 @@
-import Entidades.Proovedores;
+package Entidades;
 
 public class Administrador {
 
-    private Proovedores proovedores;
+    private Proveedores proveedores;
 
     public void Administrador() {
 

@@ -1,3 +1,5 @@
+package Entidades;
+
 public class Proveedores {
 
     private Integer telefono, NIT, cantidad;

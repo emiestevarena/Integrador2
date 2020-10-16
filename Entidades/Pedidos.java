@@ -1,3 +1,5 @@
+package Entidades;
+
 public class Pedidos {
 
     private String producto;

@@ -1,12 +1,14 @@
-public class control {
+package Entidades;
+
+public class Control {
 
     String producto;
 
-    public control(String producto) {
+    public Control(String producto) {
         this.producto = producto;
     }
 
-    public control() {
+    public Control() {
     }
 
     public String getProducto() {
