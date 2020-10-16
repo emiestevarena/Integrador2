@@ -1,5 +1,6 @@
 package Entidades;
 
+
 public class Producto {
     public int id_producto;
     public String nombre;
