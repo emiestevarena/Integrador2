@@ -1,0 +1,29 @@
+import Entidades.Proovedores;
+
+public class Administrador {
+
+    private Proovedores proovedores;
+
+    public void Administrador() {
+
+    }
+
+    public void mantenimientoYControl() {
+
+
+
+    }
+
+    public void compra() {
+
+
+
+    }
+
+    public void pedido() {
+
+
+
+    }
+    
+}
