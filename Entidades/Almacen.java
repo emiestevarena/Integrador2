@@ -1,3 +1,5 @@
+package Entidades;
+
 public class Almacen {
 
     private String nombreEmpresa, direccion;
