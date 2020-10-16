@@ -43,10 +43,18 @@ class Producto{
     +retorno()
 }
 
+class Inventario{
+    -numeroDeSolicitud: int
+    +registroPedido()
+    +existencias()
+}
+
 class Proveedor{}
 
 Almacen-->Ventas: hace?
 Almacen-->Pedido: toma?
 Existencias-->Almacen
 Existencias-->Producto
+Inventario-->Pedido
+Existencias--->Inventario
 @enduml
