@@ -11,6 +11,14 @@ this.cantidad = cantidad;
 this.precio = precio;
 }
 
+public String getProducto() {
+        return producto;
+    }
+
+public void setProducto(String producto) {
+        this.producto = producto;
+    }
+
 public int getCantidad() {
         return cantidad;
     }
