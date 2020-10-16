@@ -1,0 +1,22 @@
+@startuml latercera
+skinparam  Style strictuml
+skinparam  SequenceMessageAlignment center
+
+class Ventas{
+    - producto: string
+    - precio: double
+    - cantidad: int
+    +ventas()
+    +registroVentas()
+}
+
+class Almacen{
+    - nombreEmpresa: string
+    - direccion: string
+    +ventas()
+    +recibirPedido()
+    +recibirPago()
+}
+
+Almacen-->Ventas: oneToMany
+@enduml
