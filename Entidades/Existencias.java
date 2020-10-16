@@ -1,13 +1,11 @@
 package Entidades;
 
-import Entidades.Producto;
-
 public class Existencias {
 
     private Producto producto;
     private Integer precio, cantidad;
 
-    public void Existencias() {
+    public Existencias() {
 
     }
 
