@@ -3,7 +3,7 @@ skinparam  Style strictuml
 skinparam  SequenceMessageAlignment center
 
 class Ventas{
-    - producto: string
+    - producto: Producto
     - precio: double
     - cantidad: int
     +ventas()
@@ -49,12 +49,39 @@ class Inventario{
     +existencias()
 }
 
-class Proveedor{}
+class Proveedor{
+    -telefono: int
+    -NIT: int
+    -direccion: string
+    -cantidad: int
+    -producto: Producto
+    -nombreProveedor: string
+    +ventaDirecta()
+    +pedidosEspeciales()
+}
+
+class Administrador{
+    -proveedores: Proveedor
+    +mantemientoControl()
+    +compra()
+    +pedido()
+}
+
+class Control{
+    -producto: Producto
+    +mantemientoControl()
+    +actualizacion()
+    +depuracion()
+}
 
 Almacen-->Ventas: hace?
 Almacen-->Pedido: toma?
 Existencias-->Almacen
 Existencias-->Producto
 Inventario-->Pedido
-Existencias--->Inventario
+Inventario-->Producto
+Existencias-->Inventario
+Proveedor-->Administrador: ManyToOne
+Inventario-->Administrador
+Administrador-->Control
 @enduml
