@@ -4,7 +4,7 @@ public class Almacen {
 
     private String nombreEmpresa, direccion;
 
-    public void Almacen() {
+    public Almacen() {
 
     }
 
@@ -13,6 +13,22 @@ public class Almacen {
         this.direccion = direccion;
     }
 
+
+    public void setNombreEmpresa(String n){
+        this.nombreEmpresa=n;
+    }
+
+    public String getNombreEmpresa(){
+        return nombreEmpresa;
+    }
+
+    public void setDireccion(String d){
+        this.direccion=d;
+    }
+
+    public String getDireccion(){
+        return direccion;
+    }
 
     public void recibirPedido() {
 
