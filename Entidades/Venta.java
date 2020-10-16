@@ -42,4 +42,5 @@ public void setPrecio(long precio) {
 public void registroVenta(){
 
 }
+
 }
