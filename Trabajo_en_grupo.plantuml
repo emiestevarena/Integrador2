@@ -18,5 +18,35 @@ class Almacen{
     +recibirPago()
 }
 
-Almacen-->Ventas: oneToMany
+class Pedido{
+    - producto: Producto
+    - cantidad: int
+    - numeroDeSolicitud: int
+    +recibirPedido()
+    +registroPedido()
+}
+
+class Existencias{
+    -producto: Producto
+    -precio: double
+    -cantidad: int
+    +registroDeVentas()
+    +existencias()
+}
+
+class Producto{
+    -idProducto: int
+    -nombre: string
+    -precio: double
+    -proveedor: Proveedor
+    +asignacion()
+    +retorno()
+}
+
+class Proveedor{}
+
+Almacen-->Ventas: hace?
+Almacen-->Pedido: toma?
+Existencias-->Almacen
+Existencias-->Producto
 @enduml
